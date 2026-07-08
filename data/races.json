@@ -14,6 +14,20 @@
     "status": "completed"
   },
   {
+    "id": "tarawera-ultra-trail-2027",
+    "name": "Tarawera Ultra-Trail by UTMB",
+    "series": "UTMB World Series",
+    "country": "New Zealand",
+    "raceDate": "2027-02-13T06:00:00+13:00",
+    "registrationOpens": null,
+    "registrationCloses": null,
+    "entryMethod": "first-come",
+    "entryRequirement": "UTMB Index 50K+",
+    "distances": ["20K", "50K", "100K", "100M"],
+    "officialUrl": "https://tarawera.utmb.world/",
+    "status": "reg_open"
+  },
+  {
     "id": "chianti-ultra-trail-2026",
     "name": "Chianti Ultra Trail by UTMB",
     "series": "UTMB World Series",
@@ -26,6 +40,20 @@
     "distances": ["20K", "50K", "100K"],
     "officialUrl": "https://chianti.utmb.world/",
     "status": "completed"
+  },
+  {
+    "id": "chianti-ultra-trail-2027",
+    "name": "Chianti Ultra Trail by UTMB",
+    "series": "UTMB World Series",
+    "country": "Italy",
+    "raceDate": "2027-03-20T06:00:00+01:00",
+    "registrationOpens": null,
+    "registrationCloses": null,
+    "entryMethod": "first-come",
+    "entryRequirement": "UTMB Index 50K+",
+    "distances": ["20K", "50K", "100K"],
+    "officialUrl": "https://chianti.utmb.world/",
+    "status": "reg_open"
   },
   {
     "id": "canyons-endurance-runs-2026",
@@ -42,6 +70,20 @@
     "status": "completed"
   },
   {
+    "id": "canyons-endurance-runs-2027",
+    "name": "Canyons Endurance Runs by UTMB",
+    "series": "UTMB World Series",
+    "country": "United States",
+    "raceDate": "2027-04-23T05:30:00-07:00",
+    "registrationOpens": null,
+    "registrationCloses": null,
+    "entryMethod": "lottery",
+    "entryRequirement": "UTMB Index 50K+",
+    "distances": ["20K", "50K", "100K", "100M"],
+    "officialUrl": "https://canyons.utmb.world/",
+    "status": "announced"
+  },
+  {
     "id": "lavaredo-ultra-trail-2026",
     "name": "Lavaredo Ultra Trail by UTMB",
     "series": "UTMB World Series",
@@ -54,6 +96,20 @@
     "distances": ["20K", "50K", "100K", "100M"],
     "officialUrl": "https://lavaredo.utmb.world/",
     "status": "completed"
+  },
+  {
+    "id": "lavaredo-ultra-trail-2027",
+    "name": "Lavaredo Ultra Trail by UTMB",
+    "series": "UTMB World Series",
+    "country": "Italy",
+    "raceDate": "2027-06-25T06:00:00+02:00",
+    "registrationOpens": null,
+    "registrationCloses": null,
+    "entryMethod": "first-come",
+    "entryRequirement": "UTMB Index 50K+",
+    "distances": ["20K", "50K", "100K", "100M"],
+    "officialUrl": "https://lavaredo.utmb.world/",
+    "status": "announced"
   },
   {
     "id": "val-daran-by-utmb-2026",
@@ -71,17 +127,17 @@
   },
   {
     "id": "eiger-ultra-trail-2026",
-    "name": "Eiger Ultra-Trail by UTMB",
+    "name": "Eiger Ultra Trail by UTMB",
     "series": "UTMB World Series",
     "country": "Switzerland",
     "raceDate": "2026-07-18T05:00:00+02:00",
     "registrationOpens": null,
-    "registrationCloses": "2026-06-20T23:59:59+02:00",
+    "registrationCloses": null,
     "entryMethod": "first-come",
     "entryRequirement": "ITRA 600 / UTMB 50K",
     "distances": ["20K", "50K", "100K", "100M"],
     "officialUrl": "https://eiger.utmb.world",
-    "status": "reg_closed"
+    "status": "sold_out"
   },
   {
     "id": "speedgoat-mountain-races-2026",
@@ -90,12 +146,12 @@
     "country": "United States",
     "raceDate": "2026-07-25T06:30:00-06:00",
     "registrationOpens": null,
-    "registrationCloses": "2026-05-31T23:59:59-06:00",
+    "registrationCloses": null,
     "entryMethod": "first-come",
     "entryRequirement": "Experience on technical terrain",
     "distances": ["20K", "50K"],
     "officialUrl": "https://speedgoat.utmb.world/",
-    "status": "reg_closed"
+    "status": "reg_open"
   },
   {
     "id": "utmb-mont-blanc-2026",
@@ -108,7 +164,7 @@
     "entryMethod": "lottery",
     "entryRequirement": "UTMB Index 100M + Running Stones",
     "distances": ["20K", "50K", "100K", "100M"],
-    "officialUrl": "https://utmb.world/races/UTMB",
+    "officialUrl": "https://montblanc.utmb.world/",
     "status": "reg_closed"
   },
   {
@@ -116,42 +172,42 @@
     "name": "Kullamannen by UTMB",
     "series": "UTMB World Series",
     "country": "Sweden",
-    "raceDate": "2026-11-06T06:00:00+01:00",
+    "raceDate": "2026-10-30T06:00:00+01:00",
     "registrationOpens": null,
-    "registrationCloses": "2026-08-31T23:59:59+02:00",
+    "registrationCloses": null,
     "entryMethod": "first-come",
     "entryRequirement": "UTMB Index 50K+",
     "distances": ["20K", "50K", "100K", "100M"],
     "officialUrl": "https://kullamannen.utmb.world/",
-    "status": "announced"
+    "status": "reg_open"
   },
   {
     "id": "trans-lantau-by-utmb-2026",
     "name": "TransLantau by UTMB",
     "series": "UTMB World Series",
     "country": "Hong Kong",
-    "raceDate": "2026-11-20T06:00:00+08:00",
+    "raceDate": "2026-11-13T06:00:00+08:00",
     "registrationOpens": null,
-    "registrationCloses": "2026-08-15T23:59:59+08:00",
+    "registrationCloses": null,
     "entryMethod": "first-come",
     "entryRequirement": "UTMB Index 20K+",
     "distances": ["20K", "50K", "100K"],
     "officialUrl": "https://translantau.utmb.world/",
-    "status": "announced"
+    "status": "reg_open"
   },
   {
     "id": "ultra-trail-kosciuszko-2026",
     "name": "Ultra-Trail Kosciuszko by UTMB",
     "series": "UTMB World Series",
     "country": "Australia",
-    "raceDate": "2026-12-04T06:00:00+11:00",
+    "raceDate": "2026-11-27T06:00:00+11:00",
     "registrationOpens": null,
-    "registrationCloses": "2026-09-15T23:59:59+10:00",
+    "registrationCloses": null,
     "entryMethod": "first-come",
     "entryRequirement": "UTMB Index 20K+",
-    "distances": ["20K", "50K", "100K"],
+    "distances": ["20K", "50K", "100K", "100M"],
     "officialUrl": "https://kosciuszko.utmb.world/",
-    "status": "announced"
+    "status": "reg_open"
   },
   {
     "id": "hk100-2026",

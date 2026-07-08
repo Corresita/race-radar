@@ -65,6 +65,10 @@ Race data lives in [`data/races.json`](data/races.json). Each race record looks 
 - JSON file as the data store (deliberately simple for now)
 - `scripts/scrape.ts` — experimental scraper for pulling registration dates from race websites (`npm run scrape`)
 
+## Project journey
+
+The research, design decisions, and lessons learned behind this project are documented in [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md).
+
 ## Contributing
 
 Data corrections are the most valuable contribution right now — if you spot a wrong date or a missing race, open a PR against `data/races.json`.
