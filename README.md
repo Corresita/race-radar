@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Race Radar
 
-## Getting Started
+Never miss a trail race registration window again.
 
-First, run the development server:
+Race Radar tracks **UTMB World Series** and **World Trail Majors** races — race dates, registration opening and closing dates, entry methods (lottery vs. first come, first served), and index/points requirements — in one clean calendar.
+
+## Why
+
+Popular ultra-trail races sell out within days (sometimes hours) of registration opening, and every race has its own rules: UTMB Mont-Blanc runs a Running Stones lottery, Hong Kong 100 uses a ballot, Eiger Ultra-Trail is first come, first served. Keeping track of all these windows by hand means missed races. Race Radar puts every window in one place — and will eventually notify you before they open.
+
+## Features
+
+- Browse UTMB World Series and World Trail Majors races
+- Filter by series and distance (20K / 50K / 100K / 100M)
+- Registration window countdowns — time until registration opens, or time left to register
+- Race status tracking: announced → registration open → closed / sold out → completed
+- Simple admin page for adding races
+
+## Roadmap
+
+- [ ] iCal feed (`.ics`) so you can subscribe from Apple/Google Calendar
+- [ ] Email notifications when a subscribed race opens registration
+- [ ] Automated data updates via GitHub Actions (scraper groundwork in `scripts/scrape.ts`)
+- [ ] 2027 season data as races are announced
+- [ ] Mobile app
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Race data lives in [`data/races.json`](data/races.json). Each race record looks like:
 
-## Learn More
+```json
+{
+  "id": "utmb-mont-blanc-2026",
+  "name": "UTMB Mont-Blanc",
+  "series": "UTMB World Series",
+  "country": "France",
+  "raceDate": "2026-08-28T06:00:00+02:00",
+  "registrationOpens": null,
+  "registrationCloses": "2026-01-15T23:59:59+01:00",
+  "entryMethod": "lottery",
+  "entryRequirement": "UTMB Index 100M + Running Stones",
+  "distances": ["20K", "50K", "100K", "100M"],
+  "officialUrl": "https://utmb.world/races/UTMB",
+  "status": "reg_closed"
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+`registrationOpens` / `registrationCloses` are `null` when the organizer has not announced them yet (`TBA` in the UI). `status` is one of `announced`, `reg_open`, `reg_closed`, `sold_out`, `completed`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> **Note:** Dates are community-maintained and may lag official announcements. Always confirm on the official race website before booking flights. Corrections via PR are very welcome!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech stack
 
-## Deploy on Vercel
+- [Next.js](https://nextjs.org) (App Router) + React
+- Tailwind CSS
+- JSON file as the data store (deliberately simple for now)
+- `scripts/scrape.ts` — experimental scraper for pulling registration dates from race websites (`npm run scrape`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Data corrections are the most valuable contribution right now — if you spot a wrong date or a missing race, open a PR against `data/races.json`.
+
+## License
+
+[MIT](LICENSE)
