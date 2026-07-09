@@ -63,7 +63,7 @@ The fix: **the data source stores only facts** (dates, timezone, mechanism), and
 
 ### Scoping: trail only, and saying so out loud
 
-The earliest sketch included the six road marathon majors. I cut them — not because they don't matter, but because their registration mechanics are standardized and already well-served. Trail is where the genuine complexity lives: lotteries, stones (UTMB), qualifiers, one-hour FCFS windows. **I focused on trail because registration-mechanism complexity is the actual problem being solved.** The lottery states in `deriveStatus.ts` (entry window → awaiting draw → drawn) are already designed for the next additions — Western States, Hardrock, and the 200-mile races — which have no "registration window" at all, only an entry period and a draw date.
+The earliest sketch included the six road marathon majors. I cut them — not because they don't matter, but because their registration mechanics are standardized and already well-served. Trail is where the genuine complexity lives: lotteries, stones (UTMB), qualifiers, one-hour FCFS windows. **I focused on trail because registration-mechanism complexity is the actual problem being solved.** Adding Western States and Hardrock stress-tested the model nicely: lottery races have no "registration window" at all, only an entry period and a draw date — and the derived-status design (entry window → awaiting draw → drawn) absorbed that without schema surgery. They also forced the classification to grow up: WSER is *independent with a UTMB partnership*, so a two-value series enum would have misfiled it. The schema now separates `series` (which calendar a race belongs to) from `organizer` (who runs it), with `entryNotes` for the mechanism quirks that don't fit either.
 
 ### What I'd tell the me of three weeks ago
 
@@ -73,8 +73,9 @@ Your first value proposition is a hypothesis, not a commitment. The dataset is a
 
 1. ✅ Facts-only data schema, with status derived at runtime (`lib/deriveStatus.ts`)
 2. ✅ Website: browse + filter, sorted by next actionable date
-3. ⬜ Western States, Hardrock, and the 200-milers (lottery model is ready)
-4. ⬜ iCal feed (zero-cost subscriptions, following the cycle-calendar model)
-5. ⬜ Scheduled GitHub Actions scraping of UTMB `__NEXT_DATA__` to keep dates fresh
-6. ⬜ Email alerts for closing windows
-7. ⬜ Mobile app
+3. ✅ Western States and Hardrock (first `independent` entries; lottery states in action)
+4. ⬜ The 200-milers (Cocodona 250, Moab 240, Bigfoot 200)
+5. ⬜ iCal feed (zero-cost subscriptions, following the cycle-calendar model)
+6. ⬜ Scheduled GitHub Actions scraping of UTMB `__NEXT_DATA__` to keep dates fresh
+7. ⬜ Email alerts for closing windows
+8. ⬜ Mobile app

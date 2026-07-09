@@ -30,12 +30,13 @@ One page. Every tracked race, sorted by **what needs action next**:
 
 ## Coverage
 
-Currently tracking 21 races across:
+Currently tracking 23 races across:
 
 - **UTMB World Series** (incl. UTMB Mont-Blanc finals)
 - **World Trail Majors**
+- **Independent classics** — Western States 100, Hardrock 100
 
-Next up: the North American classics — Western States 100, Hardrock 100, and the 200-mile scene (Cocodona 250, Moab 240, Bigfoot 200). The lottery states in `deriveStatus.ts` are already built for them.
+Independent races don't belong to either series (WSER is independent *with* a UTMB partnership — qualifier reciprocity, not membership), which is why the schema separates `series` from `organizer` and keeps mechanism quirks in `entryNotes`. Next up: the 200-mile scene (Cocodona 250, Moab 240, Bigfoot 200).
 
 Race data is manually curated (with a scraper assist for UTMB sites — `npm run scrape`). Registration rules change rarely, but they do change — **always confirm on the official race website before booking flights.**
 
@@ -45,7 +46,8 @@ Next.js · Tailwind CSS · static JSON data source. No backend, no database, no 
 
 ## Roadmap
 
-- [ ] Western States, Hardrock, and the 200-milers
+- [x] Western States and Hardrock
+- [ ] The 200-milers (Cocodona 250, Moab 240, Bigfoot 200)
 - [ ] `.ics` calendar export per race — let your own calendar do the reminding
 - [ ] Email alerts for closing windows
 - [ ] Community-submitted date corrections

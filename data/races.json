@@ -2,33 +2,45 @@
   {
     "id": "tarawera-ultra-trail",
     "name": "Tarawera Ultra-Trail by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "New Zealand",
     "raceDate": "2027-02-13T06:00:00+13:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://tarawera.utmb.world/"
   },
   {
     "id": "chianti-ultra-trail",
     "name": "Chianti Ultra Trail by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Italy",
     "raceDate": "2027-03-20T06:00:00+01:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://chianti.utmb.world/"
   },
   {
     "id": "canyons-endurance-runs",
     "name": "Canyons Endurance Runs by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "United States",
     "raceDate": "2027-04-23T05:30:00-07:00",
     "registrationOpens": null,
@@ -36,39 +48,57 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": "UTMB Index 50K+",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://canyons.utmb.world/"
   },
   {
     "id": "lavaredo-ultra-trail",
     "name": "Lavaredo Ultra Trail by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Italy",
     "raceDate": "2027-06-25T06:00:00+02:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://lavaredo.utmb.world/"
   },
   {
     "id": "val-daran-by-utmb",
     "name": "Val d'Aran by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Spain",
     "raceDate": "2026-07-03T06:00:00+02:00",
     "registrationOpens": null,
     "registrationCloses": "2026-02-10T23:59:59+01:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 100K",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://valdaran.utmb.world"
   },
   {
     "id": "eiger-ultra-trail",
     "name": "Eiger Ultra Trail by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Switzerland",
     "raceDate": "2026-07-18T05:00:00+02:00",
     "registrationOpens": null,
@@ -76,26 +106,36 @@
     "registrationType": "fcfs",
     "soldOut": true,
     "entryRequirement": "ITRA 600 / UTMB 50K",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://eiger.utmb.world"
   },
   {
     "id": "speedgoat-mountain-races",
     "name": "Speedgoat Mountain Races by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "United States",
     "raceDate": "2026-07-25T06:30:00-06:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "Experience on technical terrain",
-    "distances": ["20K", "50K"],
+    "distances": [
+      "20K",
+      "50K"
+    ],
     "officialUrl": "https://speedgoat.utmb.world/"
   },
   {
     "id": "utmb-mont-blanc",
     "name": "UTMB Mont-Blanc",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "France",
     "raceDate": "2026-08-28T06:00:00+02:00",
     "registrationOpens": null,
@@ -103,52 +143,75 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": "UTMB Index 100M + Running Stones",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://montblanc.utmb.world/"
   },
   {
     "id": "kullamannen-by-utmb",
     "name": "Kullamannen by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Sweden",
     "raceDate": "2026-10-30T06:00:00+01:00",
     "registrationOpens": null,
     "registrationCloses": "2026-08-31T23:59:59+02:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://kullamannen.utmb.world/"
   },
   {
     "id": "trans-lantau-by-utmb",
     "name": "TransLantau by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Hong Kong",
     "raceDate": "2026-11-13T06:00:00+08:00",
     "registrationOpens": null,
     "registrationCloses": "2026-08-15T23:59:59+08:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 20K+",
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://translantau.utmb.world/"
   },
   {
     "id": "ultra-trail-kosciuszko",
     "name": "Ultra-Trail Kosciuszko by UTMB",
-    "series": "UTMB World Series",
+    "series": "utmb-world-series",
+    "organizer": null,
     "country": "Australia",
     "raceDate": "2026-11-27T06:00:00+11:00",
     "registrationOpens": null,
     "registrationCloses": "2026-09-15T23:59:59+10:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 20K+",
-    "distances": ["20K", "50K", "100K", "100M"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://kosciuszko.utmb.world/"
   },
   {
     "id": "hk100",
     "name": "ANTA Guanjun Hong Kong 100",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Hong Kong",
     "raceDate": "2026-01-22T08:00:00+08:00",
     "registrationOpens": null,
@@ -156,7 +219,10 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": null,
-    "distances": ["50K", "100K"],
+    "distances": [
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://www.hk100-ultra.com/",
     "nextEdition": {
       "raceDate": null,
@@ -166,33 +232,42 @@
   {
     "id": "black-canyon-ultras",
     "name": "Black Canyon Ultras",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": "Aravaipa Running",
     "country": "United States",
     "raceDate": "2026-02-14T07:00:00-07:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["50K", "100K"],
+    "distances": [
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://aravaiparunning.com/network/blackcanyon/"
   },
   {
     "id": "transgrancanaria",
     "name": "The North Face Transgrancanaria",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Spain",
     "raceDate": "2026-03-04T06:00:00+00:00",
     "registrationOpens": null,
     "registrationCloses": "2025-12-15T23:59:59+00:00",
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["50K", "100K"],
+    "distances": [
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://www.transgrancanaria.net/en/"
   },
   {
     "id": "mt-fuji-100",
     "name": "Mt. FUJI 100",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Japan",
     "raceDate": "2026-04-24T15:00:00+09:00",
     "registrationOpens": null,
@@ -200,13 +275,18 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": "Qualifying races (ITRA points)",
-    "distances": ["50K", "100K", "100M"],
+    "distances": [
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://en.mtfuji100.com/"
   },
   {
     "id": "miut",
     "name": "MIUT - Madeira Island Ultra-Trail",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Portugal",
     "raceDate": "2026-04-25T07:00:00+01:00",
     "registrationOpens": null,
@@ -214,65 +294,89 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": null,
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://miutmadeira.com/"
   },
   {
     "id": "south-downs-way-100",
     "name": "South Downs Way 100",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": "Centurion Running",
     "country": "United Kingdom",
     "raceDate": "2026-06-13T06:00:00+01:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["50K", "100M"],
+    "distances": [
+      "50K",
+      "100M"
+    ],
     "officialUrl": "https://centurionrunning.com/"
   },
   {
     "id": "quebec-mega-trail",
     "name": "Quebec Mega Trail",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Canada",
     "raceDate": "2026-07-02T05:00:00-04:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://quebecmegatrail.com/"
   },
   {
     "id": "vietnam-mountain-marathon",
     "name": "Vietnam Mountain Marathon",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "Vietnam",
     "raceDate": "2026-09-17T04:00:00+07:00",
     "registrationOpens": null,
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://www.vietnammountainmarathon.com/"
   },
   {
     "id": "grampians-peaks-trail-100",
     "name": "Grampians Peaks Trail 100 Miler",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": "SingleTrack Events",
     "country": "Australia",
     "raceDate": "2026-11-06T08:00:00+11:00",
     "registrationOpens": "2026-02-05T09:00:00+11:00",
     "registrationCloses": "2026-10-29T23:59:59+11:00",
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": ["50K", "100K", "100M"],
+    "distances": [
+      "50K",
+      "100K",
+      "100M"
+    ],
     "officialUrl": "https://www.gpt100.com.au/"
   },
   {
     "id": "ultra-trail-cape-town",
     "name": "RMB Ultra-Trail Cape Town",
-    "series": "World Trail Majors",
+    "series": "world-trail-majors",
+    "organizer": null,
     "country": "South Africa",
     "raceDate": "2026-11-20T05:00:00+02:00",
     "registrationOpens": null,
@@ -280,7 +384,47 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": null,
-    "distances": ["20K", "50K", "100K"],
+    "distances": [
+      "20K",
+      "50K",
+      "100K"
+    ],
     "officialUrl": "https://www.ultratrailcapetown.com/"
+  },
+  {
+    "id": "western-states-100",
+    "name": "Western States 100",
+    "series": "independent",
+    "organizer": "WSER Foundation",
+    "country": "United States",
+    "raceDate": "2027-06-26T05:00:00-07:00",
+    "registrationOpens": "2026-11-01T00:00:00-08:00",
+    "registrationCloses": "2026-11-21T23:59:59-08:00",
+    "registrationType": "lottery",
+    "lotteryDrawDate": "2026-12-05T08:00:00-08:00",
+    "entryRequirement": "Qualifying race (Nov 3, 2025 - Nov 8, 2026)",
+    "entryNotes": "Independent, with UTMB partnership (qualifier reciprocity). Unselected lottery tickets accumulate year over year. Golden Ticket races grant automatic entry.",
+    "distances": [
+      "100M"
+    ],
+    "officialUrl": "https://www.wser.org/"
+  },
+  {
+    "id": "hardrock-100",
+    "name": "Hardrock 100",
+    "series": "independent",
+    "organizer": "Hardrock Hundred Endurance Run",
+    "country": "United States",
+    "raceDate": "2026-07-10T06:00:00-06:00",
+    "registrationOpens": "2025-10-01T00:00:00-06:00",
+    "registrationCloses": "2025-10-15T23:59:59-06:00",
+    "registrationType": "lottery",
+    "lotteryDrawDate": "2025-12-06T09:00:00-07:00",
+    "entryRequirement": "Qualifying race required",
+    "entryNotes": "Applications accepted the first two weeks of October (exact dates announced in September); lottery drawn the first weekend of December. Finished/Never-Finished pools with accumulating tickets.",
+    "distances": [
+      "100M"
+    ],
+    "officialUrl": "https://hardrock100.com/"
   }
 ]

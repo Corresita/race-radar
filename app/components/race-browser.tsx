@@ -7,10 +7,14 @@ import {
   type Urgency,
 } from "@/lib/deriveStatus";
 
+export type Series = "utmb-world-series" | "world-trail-majors" | "independent";
+
 export type Race = RaceFacts & {
-  series: string;
+  series: Series;
+  organizer: string | null;
   country: string | null;
   entryRequirement: string | null;
+  entryNotes?: string | null;
   distances: string[];
   officialUrl: string;
 };
@@ -19,7 +23,15 @@ type RaceBrowserProps = {
   races: Race[];
 };
 
-const seriesTabs = ["UTMB World Series", "World Trail Majors"] as const;
+const seriesTabs: { slug: Series; label: string }[] = [
+  { slug: "utmb-world-series", label: "UTMB World Series" },
+  { slug: "world-trail-majors", label: "World Trail Majors" },
+  { slug: "independent", label: "Independent" },
+];
+
+const seriesLabels = Object.fromEntries(
+  seriesTabs.map((tab) => [tab.slug, tab.label]),
+) as Record<Series, string>;
 
 const urgencyStyles: Record<Urgency, string> = {
   critical: "border-red-500/40 text-red-700 bg-red-50",
@@ -47,8 +59,7 @@ function formatDate(iso: string | null | undefined) {
 }
 
 export function RaceBrowser({ races }: RaceBrowserProps) {
-  const [activeSeries, setActiveSeries] =
-    useState<(typeof seriesTabs)[number]>("UTMB World Series");
+  const [activeSeries, setActiveSeries] = useState<Series>("utmb-world-series");
   const [activeDistance, setActiveDistance] = useState<string | null>(null);
   // Frozen at first render so server and client agree during hydration.
   const [now] = useState(() => new Date());
@@ -68,21 +79,21 @@ export function RaceBrowser({ races }: RaceBrowserProps) {
   return (
     <>
       <section className="mb-4 flex flex-wrap gap-2">
-        {seriesTabs.map((series) => (
+        {seriesTabs.map((tab) => (
           <button
-            key={series}
+            key={tab.slug}
             type="button"
             onClick={() => {
-              setActiveSeries(series);
+              setActiveSeries(tab.slug);
               setActiveDistance(null);
             }}
             className={`rounded-full border px-4 py-1.5 text-xs tracking-wide uppercase transition-colors ${
-              activeSeries === series
+              activeSeries === tab.slug
                 ? "border-zinc-900 bg-zinc-900 text-zinc-50"
                 : "border-zinc-300 text-zinc-600 hover:border-zinc-500 hover:text-zinc-900"
             }`}
           >
-            {series}
+            {tab.label}
           </button>
         ))}
       </section>
@@ -128,7 +139,7 @@ export function RaceBrowser({ races }: RaceBrowserProps) {
                   Official site
                 </a>
                 <p className="mt-1 text-[11px] tracking-[0.12em] text-zinc-500 uppercase">
-                  {race.series}
+                  {race.organizer ?? seriesLabels[race.series]}
                   {race.country ? ` · ${race.country}` : null}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
@@ -155,6 +166,9 @@ export function RaceBrowser({ races }: RaceBrowserProps) {
                   <p className="mt-1 text-xs text-zinc-500">
                     Requires: {race.entryRequirement}
                   </p>
+                ) : null}
+                {race.entryNotes ? (
+                  <p className="mt-1 text-xs text-zinc-400">{race.entryNotes}</p>
                 ) : null}
               </div>
 
