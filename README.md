@@ -1,64 +1,77 @@
-# Race Radar 🏔️
+# Race Radar
 
-**Never miss a registration window again.**
+Never miss a trail race registration window again.
 
-Trail race registrations don't fail politely. Miss the closing date of a first-come-first-served race, or a lottery entry window, and the answer is: *wait a year.* Race Radar tracks the registration windows of major trail ultras in one place, and tells you what needs your attention — before it's too late.
+Race Radar tracks **UTMB World Series** and **World Trail Majors** races — race dates, registration opening and closing dates, entry methods (lottery vs. first come, first served), and index/points requirements — in one clean calendar.
 
-**Live at:** [race-radar.vercel.app](#) <!-- replace with your URL -->
+## Why
 
----
+Popular ultra-trail races sell out within days (sometimes hours) of registration opening, and every race has its own rules: UTMB Mont-Blanc runs a Running Stones lottery, Hong Kong 100 uses a ballot, Eiger Ultra-Trail is first come, first served. Keeping track of all these windows by hand means missed races. Race Radar puts every window in one place — and will eventually notify you before they open.
 
-## The problem
+## Features
 
-Every trail runner solves this the same broken way: bookmarked race websites, phone reminders set months in advance, group chats where someone hopefully remembers to post "registration closes Friday!!". Each race has its own mechanism — first-come-first-served, lottery, qualification points, running stones — and its own calendar. The information exists; it's just scattered across thirty websites that you have to remember to check.
-
-## What Race Radar does
-
-One page. Every tracked race, sorted by **what needs action next**:
-
-- ⏰ **Closing soon** — registration windows about to shut (the core alert)
-- 🎟️ **Lottery windows** — entry periods and draw dates for UTMB Mont-Blanc, HK100, MIUT, and friends
-- 🔄 **Next edition watch** — a completed race isn't dead, it's a signal: the next edition's registration is coming. Race Radar keeps watching so you don't have to.
-
-## Design principles
-
-**Facts, not conclusions.** The data source (`data/races.json`) stores only facts: dates, timezones, registration mechanism. Status ("open", "closing soon", "completed") is never stored — it's derived at runtime from facts + current time (`lib/deriveStatus.ts`). The only manually maintained status is `soldOut`, because code can't know that. This means status can never silently go stale.
-
-**Races are cycles, not events.** A trail race is a living annual organism. "Completed" is just one phase of its loop: announced → opens → closes → runs → announces again. Completed races stay visible, rolled forward into "next edition" tracking — because the moment a race finishes is exactly when its next registration date starts to matter.
-
-**Scope: trail only, on purpose.** Road majors (Boston, London, Tokyo) are deliberately excluded. Their registration mechanisms are standardized and well-served. Trail ultras are where the complexity lives — lotteries, stones, qualifiers, tiny FCFS windows — and complexity is the problem worth solving.
-
-## Coverage
-
-Currently tracking 23 races across:
-
-- **UTMB World Series** (incl. UTMB Mont-Blanc finals)
-- **World Trail Majors**
-- **Independent classics** — Western States 100, Hardrock 100
-
-Independent races don't belong to either series (WSER is independent *with* a UTMB partnership — qualifier reciprocity, not membership), which is why the schema separates `series` from `organizer` and keeps mechanism quirks in `entryNotes`. Next up: the 200-mile scene (Cocodona 250, Moab 240, Bigfoot 200).
-
-Race data is manually curated (with a scraper assist for UTMB sites — `npm run scrape`). Registration rules change rarely, but they do change — **always confirm on the official race website before booking flights.**
-
-## Stack
-
-Next.js · Tailwind CSS · static JSON data source. No backend, no database, no accounts — deliberately. V1 optimizes for zero maintenance cost and instant page loads.
+- Browse UTMB World Series and World Trail Majors races
+- Filter by series and distance (20K / 50K / 100K / 100M)
+- Registration window countdowns — time until registration opens, or time left to register
+- Race status tracking: announced → registration open → closed / sold out → completed
+- `npm run scrape` — checks every UTMB race against its official site (dates and per-distance registration status)
 
 ## Roadmap
 
-- [x] Western States and Hardrock
-- [ ] The 200-milers (Cocodona 250, Moab 240, Bigfoot 200)
-- [ ] `.ics` calendar export per race — let your own calendar do the reminding
-- [ ] Email alerts for closing windows
-- [ ] Community-submitted date corrections
+- [ ] iCal feed (`.ics`) so you can subscribe from Apple/Google Calendar
+- [ ] Email notifications when a subscribed race opens registration
+- [ ] Automated data updates via GitHub Actions (scraper groundwork in `scripts/scrape.ts`)
+- [ ] 2027 season data as races are announced
+- [ ] Mobile app
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Data
+
+Race data lives in [`data/races.json`](data/races.json). Each race record looks like:
+
+```json
+{
+  "id": "utmb-mont-blanc-2026",
+  "name": "UTMB Mont-Blanc",
+  "series": "UTMB World Series",
+  "country": "France",
+  "raceDate": "2026-08-28T06:00:00+02:00",
+  "registrationOpens": null,
+  "registrationCloses": "2026-01-15T23:59:59+01:00",
+  "entryMethod": "lottery",
+  "entryRequirement": "UTMB Index 100M + Running Stones",
+  "distances": ["20K", "50K", "100K", "100M"],
+  "officialUrl": "https://utmb.world/races/UTMB",
+  "status": "reg_closed"
+}
+```
+
+`registrationOpens` / `registrationCloses` are `null` when the organizer has not announced them yet (`TBA` in the UI). `status` is one of `announced`, `reg_open`, `reg_closed`, `sold_out`, `completed`.
+
+> **Note:** Dates are community-maintained and may lag official announcements. Always confirm on the official race website before booking flights. Corrections via PR are very welcome!
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) + React
+- Tailwind CSS
+- JSON file as the data store (deliberately simple for now)
+- `scripts/scrape.ts` — dependency-free checker that reads event dates and registration status straight from the `__NEXT_DATA__` JSON embedded in UTMB race sites
 
 ## Project journey
 
-The research, repositioning, and design decisions behind this project are documented in [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md).
+The research, design decisions, and lessons learned behind this project are documented in [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md).
 
-## Disclaimer
+## Contributing
 
-Race Radar is an independent tool built by a trail runner, for trail runners. It is not affiliated with UTMB Group, WTM, or any race organizer. Dates are curated in good faith; the official race website is always the source of truth.
+Data corrections are the most valuable contribution right now — if you spot a wrong date or a missing race, open a PR against `data/races.json`.
 
 ## License
 
