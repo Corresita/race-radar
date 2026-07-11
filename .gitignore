@@ -20,6 +20,10 @@
 # production
 /build
 
+# subscriber data (contains email addresses)
+/data/subscriptions.json
+/data/notified.json
+
 # misc
 .DS_Store
 *.pem

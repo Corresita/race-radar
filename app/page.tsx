@@ -1,17 +1,13 @@
 import { RaceBrowser, type Race } from "@/app/components/race-browser";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
+import races from "@/data/races.json";
 
 export const dynamic = "force-dynamic";
 
-async function getRaceData() {
-  const racesPath = path.join(process.cwd(), "data", "races.json");
-  const racesRaw = await readFile(racesPath, "utf-8");
-  return JSON.parse(racesRaw) as Race[];
-}
+// Static import so the data ships inside the serverless bundle; a runtime
+// readFile would not be traced into the deployment output.
+const raceData = races as unknown as Race[];
 
-export default async function Home() {
-  const raceData = await getRaceData();
+export default function Home() {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-6 py-16 sm:px-10">
@@ -20,11 +16,11 @@ export default async function Home() {
           Race Radar
         </p>
         <h1 className="mt-3 text-3xl font-light tracking-tight text-zinc-900 sm:text-4xl">
-          Trail and Ultra Calendar
+          Registration reminder for ultra trails
         </h1>
         <p className="mt-3 max-w-2xl text-sm text-zinc-600 sm:text-base">
-          Never miss a registration window. UTMB World Series and World Trail
-          Majors races, sorted by what needs action next.
+          Tracks opening dates, deadlines, and lotteries across major races,
+          and surfaces what needs your action next.
         </p>
       </header>
 

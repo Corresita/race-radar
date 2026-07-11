@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   deriveStatus,
   type Race as RaceFacts,
@@ -46,6 +46,10 @@ const registrationTypeLabels: Record<string, string> = {
   qualification: "Qualification",
 };
 
+const EMAIL_STORAGE_KEY = "race-radar-email";
+const SUBSCRIPTIONS_STORAGE_KEY = "race-radar-subscriptions";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function formatDate(iso: string | null | undefined) {
   if (!iso) return null;
   const parsed = new Date(iso);
@@ -64,6 +68,89 @@ export function RaceBrowser({ races }: RaceBrowserProps) {
   // Frozen at first render so server and client agree during hydration.
   const [now] = useState(() => new Date());
   const trailDistanceFilters = ["20K", "50K", "100K", "100M"];
+
+  // Subscription state lives in localStorage; loaded after mount so the
+  // server-rendered HTML and the first client render agree.
+  const [email, setEmail] = useState<string | null>(null);
+  const [subscribedIds, setSubscribedIds] = useState<Set<string>>(new Set());
+  const [emailFormRaceId, setEmailFormRaceId] = useState<string | null>(null);
+  const [emailDraft, setEmailDraft] = useState("");
+  const [busyRaceId, setBusyRaceId] = useState<string | null>(null);
+  const [subscribeError, setSubscribeError] = useState<{
+    raceId: string;
+    message: string;
+  } | null>(null);
+
+  useEffect(() => {
+    setEmail(localStorage.getItem(EMAIL_STORAGE_KEY));
+    try {
+      const raw = localStorage.getItem(SUBSCRIPTIONS_STORAGE_KEY);
+      if (raw) setSubscribedIds(new Set(JSON.parse(raw) as string[]));
+    } catch {
+      // Corrupt storage — start fresh.
+    }
+  }, []);
+
+  async function updateSubscription(
+    raceId: string,
+    subscriberEmail: string,
+    subscribe: boolean,
+  ) {
+    setBusyRaceId(raceId);
+    setSubscribeError(null);
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: subscribe ? "POST" : "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email: subscriberEmail, raceId }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      setSubscribedIds((current) => {
+        const next = new Set(current);
+        if (subscribe) next.add(raceId);
+        else next.delete(raceId);
+        localStorage.setItem(
+          SUBSCRIPTIONS_STORAGE_KEY,
+          JSON.stringify([...next]),
+        );
+        return next;
+      });
+      setEmailFormRaceId(null);
+    } catch {
+      setSubscribeError({
+        raceId,
+        message: "Could not save — please try again.",
+      });
+    } finally {
+      setBusyRaceId(null);
+    }
+  }
+
+  function onSubscribeClick(raceId: string) {
+    if (subscribedIds.has(raceId) && email) {
+      void updateSubscription(raceId, email, false);
+      return;
+    }
+    if (email) {
+      void updateSubscription(raceId, email, true);
+      return;
+    }
+    setEmailDraft("");
+    setSubscribeError(null);
+    setEmailFormRaceId((current) => (current === raceId ? null : raceId));
+  }
+
+  function onEmailSubmit(raceId: string) {
+    const candidate = emailDraft.trim().toLowerCase();
+    if (!EMAIL_PATTERN.test(candidate)) {
+      setSubscribeError({ raceId, message: "Please enter a valid email." });
+      return;
+    }
+    localStorage.setItem(EMAIL_STORAGE_KEY, candidate);
+    setEmail(candidate);
+    void updateSubscription(raceId, candidate, true);
+  }
 
   const visibleRaces = useMemo(() => {
     return races
@@ -189,6 +276,55 @@ export function RaceBrowser({ races }: RaceBrowserProps) {
                     Closes {formatDate(race.registrationCloses)}
                   </p>
                 ) : null}
+
+                <div className="mt-3">
+                  <button
+                    type="button"
+                    onClick={() => onSubscribeClick(race.id)}
+                    disabled={busyRaceId === race.id}
+                    title="Email me when registration opens"
+                    className={`rounded-full border px-3 py-1 text-[11px] tracking-wide uppercase transition-colors disabled:opacity-50 ${
+                      subscribedIds.has(race.id)
+                        ? "border-emerald-500/40 bg-emerald-50 text-emerald-700 hover:border-emerald-600"
+                        : "border-zinc-300 text-zinc-600 hover:border-zinc-500 hover:text-zinc-900"
+                    }`}
+                  >
+                    {subscribedIds.has(race.id) ? "Subscribed ✓" : "Subscribe"}
+                  </button>
+
+                  {emailFormRaceId === race.id ? (
+                    <form
+                      className="mt-2 flex flex-wrap gap-1.5"
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        onEmailSubmit(race.id);
+                      }}
+                    >
+                      <input
+                        type="email"
+                        autoFocus
+                        required
+                        value={emailDraft}
+                        onChange={(event) => setEmailDraft(event.target.value)}
+                        placeholder="you@example.com"
+                        className="w-40 rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-800 placeholder:text-zinc-400 focus:border-zinc-500 focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        disabled={busyRaceId === race.id}
+                        className="rounded-full border border-zinc-900 bg-zinc-900 px-3 py-1 text-[11px] tracking-wide text-zinc-50 uppercase disabled:opacity-50"
+                      >
+                        OK
+                      </button>
+                    </form>
+                  ) : null}
+
+                  {subscribeError?.raceId === race.id ? (
+                    <p className="mt-1 text-xs text-red-600">
+                      {subscribeError.message}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             </li>
           ))}
