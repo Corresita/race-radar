@@ -28,7 +28,9 @@ Popular ultra-trail races sell out within days (sometimes hours) of registration
 - [ ] 2027 season data as races are announced
 - [ ] Mobile app
 
-## Getting started
+## Running locally
+
+Want to use the app? Just visit [race-reminder.vercel.app](https://race-reminder.vercel.app) — no setup needed. The steps below are for developing or contributing.
 
 ### Prerequisites
 
