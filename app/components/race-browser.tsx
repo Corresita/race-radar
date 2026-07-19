@@ -55,6 +55,19 @@ const registrationTypeLabels: Record<string, string> = {
   qualification: "Qualification",
 };
 
+// Status groups behind the clickable header counts.
+const STATUS_GROUPS: Record<"open" | "closed", Set<DerivedStatus["code"]>> = {
+  open: new Set(["REG_OPEN", "REG_CLOSING_SOON", "LOTTERY_OPEN"]),
+  closed: new Set([
+    "REG_CLOSED",
+    "SOLD_OUT",
+    "LOTTERY_DRAWN",
+    "AWAITING_DRAW",
+    "COMPLETED_NEXT_KNOWN",
+    "COMPLETED_NEXT_TBA",
+  ]),
+};
+
 const shortStatusLabels: Record<DerivedStatus["code"], string> = {
   REG_OPENS_SOON: "Not yet open",
   LOTTERY_OPENS_SOON: "Not yet open",
@@ -130,6 +143,9 @@ function formatDate(iso: string | null | undefined) {
 export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
   const [activeSeries, setActiveSeries] = useState<Series | null>(null);
   const [activeDistance, setActiveDistance] = useState<string | null>(null);
+  const [activeStatusGroup, setActiveStatusGroup] = useState<
+    "open" | "closed" | null
+  >(null);
   const [now] = useState(() => new Date(initialNow));
 
   // Subscription state lives in localStorage; loaded after mount so the
@@ -215,16 +231,30 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
     void updateSubscription(raceId, candidate, true);
   }
 
+  // Global counts for the header, independent of any active filter.
+  const counts = useMemo(() => {
+    const statuses = races.map((race) => deriveStatus(race, now));
+    return {
+      total: races.length,
+      open: statuses.filter((s) => STATUS_GROUPS.open.has(s.code)).length,
+      closed: statuses.filter((s) => STATUS_GROUPS.closed.has(s.code)).length,
+    };
+  }, [races, now]);
+
   const { actionableRaces, sunkRaces, tbaRaces } = useMemo(() => {
     const actionableRaces: { race: Race; status: DerivedStatus }[] = [];
     const sunkRaces: { race: Race; status: DerivedStatus }[] = [];
     const tbaRaces: { race: Race; status: DerivedStatus }[] = [];
 
     const activeFilter = distanceFilters.find((f) => f.id === activeDistance);
+    const statusGroup = activeStatusGroup
+      ? STATUS_GROUPS[activeStatusGroup]
+      : null;
     for (const race of races) {
       if (activeSeries && race.series !== activeSeries) continue;
       if (activeFilter && !race.distancesKm.some(activeFilter.match)) continue;
       const status = deriveStatus(race, now);
+      if (statusGroup && !statusGroup.has(status.code)) continue;
       if (status.code === "DATES_TBA") tbaRaces.push({ race, status });
       else if (status.actionable) actionableRaces.push({ race, status });
       else sunkRaces.push({ race, status });
@@ -233,7 +263,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
     sunkRaces.sort((a, b) => compareStatus(a.status, b.status));
 
     return { actionableRaces, sunkRaces, tbaRaces };
-  }, [races, activeSeries, activeDistance, now]);
+  }, [races, activeSeries, activeDistance, activeStatusGroup, now]);
 
   function renderRace(
     { race, status }: { race: Race; status: DerivedStatus },
@@ -381,6 +411,76 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
 
   return (
     <>
+      <header className="mb-10">
+        <div className="flex flex-wrap items-start justify-between gap-4 border-b border-zinc-300 pb-5">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.25em] text-zinc-900 uppercase">
+              Race Reminder™
+            </p>
+            <p className="mt-2 max-w-xs text-[11px] leading-relaxed tracking-[0.08em] text-zinc-500 uppercase">
+              Monitoring trail ultra registrations so you never miss a start
+              line.
+            </p>
+          </div>
+          <div className="flex gap-6 text-xs tracking-wide uppercase">
+            <button
+              type="button"
+              onClick={() => setActiveStatusGroup(null)}
+              className={`cursor-pointer transition-colors ${
+                activeStatusGroup === null
+                  ? "text-zinc-900"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              <span className="mr-1.5 font-semibold text-zinc-900">
+                {counts.total}
+              </span>
+              races
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setActiveStatusGroup((c) => (c === "open" ? null : "open"))
+              }
+              className={`cursor-pointer transition-colors ${
+                activeStatusGroup === "open"
+                  ? "text-zinc-900 underline underline-offset-4"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              <span className="mr-1.5 font-semibold text-zinc-900">
+                {counts.open}
+              </span>
+              open
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setActiveStatusGroup((c) => (c === "closed" ? null : "closed"))
+              }
+              className={`cursor-pointer transition-colors ${
+                activeStatusGroup === "closed"
+                  ? "text-zinc-900 underline underline-offset-4"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              <span className="mr-1.5 font-semibold text-zinc-900">
+                {counts.closed}
+              </span>
+              closed
+            </button>
+          </div>
+        </div>
+
+        <h1 className="mt-8 text-sm font-semibold tracking-[0.25em] text-zinc-900 uppercase">
+          Never miss a trail ultra registration.
+        </h1>
+        <p className="mt-2 max-w-md text-[11px] leading-relaxed tracking-[0.08em] text-zinc-500 uppercase">
+          Opening dates, deadlines, and lottery draws — sorted by what needs
+          action next.
+        </p>
+      </header>
+
       <section className="mb-4 flex flex-wrap gap-2">
         {seriesTabs.map((tab) => (
           <button
