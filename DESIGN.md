@@ -110,25 +110,25 @@ continuously across all three groups.
 
 ## 6. Race card
 
-Three columns per row (stacks on mobile):
+Cards in a responsive grid (3 columns desktop / 2 tablet / 1 mobile),
+each stacking top to bottom:
 
-### 6a. Identity (left)
+### 6a. Identity (top)
 
-- index number (position in the current view)
+- index number (top-left) + short status badge (top-right)
 - race name
 - `organizer-or-series · country · year` (year from `raceDate`)
-- official site link
 - real-distance chips (`40K 70K 161K`), from `distancesKm`
 
-### 6b. Facts (middle)
+### 6b. Facts row
 
-- **Race Date** — formatted `raceDate`, `TBA` when null
-- **Entry** — `registrationType`: Lottery / First come, first served /
-  Qualification
+- **Date** — formatted `raceDate`, `TBA` when null; **Entry** —
+  `registrationType` (Lottery / First come, first served / Qualification)
+  side by side above a divider
 - **Requires** — `entryRequirement` (only when present)
-- small print — `entryNotes` (only when present)
+- small print — `entryNotes` (clamped to 2 lines, only when present)
 
-### 6c. Registration (right)
+### 6c. Registration (bottom)
 
 - **short status badge**, colored by `status.urgency`
   (red = critical, amber = warning, green = normal, gray = none).
@@ -153,9 +153,10 @@ Three columns per row (stacks on mobile):
 - **Opens / Closes dates** — only while the window is live
   (`status.actionable && !status.completed`); stale past-edition dates are
   hidden
-- **Set reminder button** — `Set reminder` / `Reminder set ✓` (emerald when
-  set). First click expands an inline email form; the email is remembered
-  in `localStorage` afterwards. POST/DELETE `/api/subscribe`.
+- **action row (bottom-pinned)** — `Set reminder` / `Reminder set ✓`
+  (emerald when set; first click expands an inline email form, the email is
+  remembered in `localStorage`; POST/DELETE `/api/subscribe`) plus a
+  `Site ↗` link to the official race page.
 
 **Code:** `renderRace`, `shortStatusLabels`, `countdownRow` in
 `app/components/race-browser.tsx`.
