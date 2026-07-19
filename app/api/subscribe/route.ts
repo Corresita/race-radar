@@ -1,4 +1,6 @@
 import races from "@/data/races.json";
+import { deriveStatus, type Race } from "@/lib/deriveStatus";
+import { sendEmail } from "@/lib/email";
 import {
   EMAIL_PATTERN,
   addSubscription,
@@ -28,11 +30,35 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
-  if (!races.some((race) => race.id === body.raceId)) {
+  const race = races.find((r) => r.id === body.raceId);
+  if (!race) {
     return Response.json({ error: "Unknown race" }, { status: 404 });
   }
 
-  await addSubscription(body.email, body.raceId);
+  const created = await addSubscription(body.email, body.raceId);
+
+  if (created) {
+    // Confirmation is best-effort: a failed email must not fail the subscribe.
+    const status = deriveStatus(race as unknown as Race);
+    try {
+      await sendEmail(
+        body.email,
+        `Subscribed: ${race.name}`,
+        [
+          `You're subscribed to ${race.name}.`,
+          ``,
+          `Current status: ${status.label}`,
+          `We'll email you when its registration window opens.`,
+          ``,
+          `Race page: ${race.officialUrl}`,
+          `Manage subscriptions: https://race-reminder.vercel.app`,
+        ].join("\n"),
+      );
+    } catch (error) {
+      console.error("confirmation email failed:", error);
+    }
+  }
+
   return Response.json({ subscribed: true });
 }
 

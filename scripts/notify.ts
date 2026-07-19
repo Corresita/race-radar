@@ -17,6 +17,7 @@ import {
   type DerivedStatus,
   type Race,
 } from "../lib/deriveStatus";
+import { sendEmail } from "../lib/email";
 import { listNotified, listSubscriptions, markNotified } from "../lib/subscriptions";
 
 type RaceRecord = Race & {
@@ -26,30 +27,10 @@ type RaceRecord = Race & {
 
 const OPEN_CODES = new Set(["REG_OPEN", "REG_CLOSING_SOON", "LOTTERY_OPEN"]);
 
-async function sendEmail(to: string, subject: string, text: string) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.log(`  [dry run] would email ${to}: ${subject}`);
-    return;
-  }
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({
-      // || not ??: CI passes unset secrets through as empty strings
-      from: process.env.EMAIL_FROM || "Race Reminder <onboarding@resend.dev>",
-      to,
-      subject,
-      text,
-    }),
-  });
-  if (!response.ok) {
-    throw new Error(`Resend ${response.status}: ${await response.text()}`);
-  }
-  console.log(`  emailed ${to}: ${subject}`);
+async function notifySubscriber(to: string, subject: string, text: string) {
+  const sent = await sendEmail(to, subject, text);
+  if (sent) console.log(`  emailed ${to}: ${subject}`);
+  else console.log(`  [dry run] would email ${to}: ${subject}`);
 }
 
 function buildEmail(race: RaceRecord, status: DerivedStatus) {
@@ -102,7 +83,7 @@ async function main() {
     for (const sub of subscribers) {
       const key = `${race.id}|${race.raceDate ?? "tba"}|${sub.email}`;
       if (notified.has(key)) continue;
-      await sendEmail(sub.email, subject, text);
+      await notifySubscriber(sub.email, subject, text);
       sentKeys.push(key);
     }
   }

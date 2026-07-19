@@ -84,16 +84,24 @@ export async function listSubscriptions(): Promise<Subscription[]> {
   return readJsonFile<Subscription[]>(subscriptionsPath, []);
 }
 
-export async function addSubscription(email: string, raceId: string): Promise<void> {
+/** Returns true when this is a new subscription, false if it already existed. */
+export async function addSubscription(email: string, raceId: string): Promise<boolean> {
   if (upstashConfig()) {
-    await redis(["HSETNX", "subscriptions", `${raceId}|${email}`, new Date().toISOString()]);
-    return;
+    const created = await redis([
+      "HSETNX",
+      "subscriptions",
+      `${raceId}|${email}`,
+      new Date().toISOString(),
+    ]);
+    return created === 1;
   }
   const subscriptions = await readJsonFile<Subscription[]>(subscriptionsPath, []);
-  if (!subscriptions.some((sub) => sub.email === email && sub.raceId === raceId)) {
-    subscriptions.push({ email, raceId, createdAt: new Date().toISOString() });
-    await writeJsonFile(subscriptionsPath, subscriptions);
+  if (subscriptions.some((sub) => sub.email === email && sub.raceId === raceId)) {
+    return false;
   }
+  subscriptions.push({ email, raceId, createdAt: new Date().toISOString() });
+  await writeJsonFile(subscriptionsPath, subscriptions);
+  return true;
 }
 
 export async function removeSubscription(email: string, raceId: string): Promise<void> {
