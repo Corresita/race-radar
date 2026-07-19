@@ -9,7 +9,7 @@ const raceData = races as unknown as Race[];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col px-6 py-10 sm:px-10">
+    <main className="flex min-h-screen w-full flex-col px-9 py-10 sm:px-15">
       {/* Server components run once per request, so this is a stable
           per-request timestamp; the client reuses it during hydration. */}
       {/* eslint-disable-next-line react-hooks/purity */}
