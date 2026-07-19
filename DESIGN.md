@@ -32,17 +32,16 @@ the counts can drive filter state).
 
 ---
 
-## 2. Hero
+## 2. Hero / description
 
-**Shows:** a one-line headline stating the product promise
-(`OPENING DATES, DEADLINES, AND LOTTERY DRAWS — SORTED BY WHAT NEEDS
-ACTION NEXT.`). The brand tagline above the divider reads
-`NEVER MISS A START LINE.`
+**Shows:** directly under the wordmark, one combined sentence-case line
+(the h1): "Never miss a start line. Opening dates, deadlines, and lottery
+draws — sorted by what needs action next." No divider splits it; it sits
+inside the brand block, above the shared border.
 
-**Rules:** wordmark, tagline, and headline share the **same small-caps
-type scale** (headline = wordmark style, tagline = smaller) so the whole
-header reads as one system. The `<title>`/meta description in
-`app/layout.tsx` are separate and tuned for search — no need to mirror.
+**Rules:** one font (default Inter), sentence case, gray — descriptive
+supporting copy, not a wordmark. The `<title>`/meta description in
+`app/layout.tsx` are separate and tuned for search.
 
 **Code:** header block in `app/components/race-browser.tsx`;
 `<title>`/description in `app/layout.tsx`.
@@ -167,10 +166,10 @@ render dimmed (three columns per row, stacking on mobile):
 
 ## 7. Footer
 
-**Shows:** data-honesty note (manually curated, confirm on official
-sites) plus a `RACE_REMINDER ©` wordmark styled identically to the top
-brand mark (Space Grotesk, small, semibold, 0.25em tracking, zinc-900),
-bookending the page.
+**Shows:** in one row — the data-honesty note (manually curated, confirm
+on official sites) on the left, and a `RACE_REMINDER ©` wordmark on the
+right, styled identically to the top brand mark (Space Grotesk, small,
+semibold, 0.25em tracking, zinc-900).
 
 **Code:** `app/page.tsx`.
 
