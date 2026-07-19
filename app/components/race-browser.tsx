@@ -156,19 +156,23 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
     void updateSubscription(raceId, candidate, true);
   }
 
-  const { mainRaces, tbaRaces } = useMemo(() => {
-    const mainRaces: { race: Race; status: DerivedStatus }[] = [];
+  const { actionableRaces, sunkRaces, tbaRaces } = useMemo(() => {
+    const actionableRaces: { race: Race; status: DerivedStatus }[] = [];
+    const sunkRaces: { race: Race; status: DerivedStatus }[] = [];
     const tbaRaces: { race: Race; status: DerivedStatus }[] = [];
 
     for (const race of races) {
       if (race.series !== activeSeries) continue;
       if (activeDistance && !race.distances.includes(activeDistance)) continue;
       const status = deriveStatus(race, now);
-      (status.code === "DATES_TBA" ? tbaRaces : mainRaces).push({ race, status });
+      if (status.code === "DATES_TBA") tbaRaces.push({ race, status });
+      else if (status.actionable) actionableRaces.push({ race, status });
+      else sunkRaces.push({ race, status });
     }
-    mainRaces.sort((a, b) => compareStatus(a.status, b.status));
+    actionableRaces.sort((a, b) => compareStatus(a.status, b.status));
+    sunkRaces.sort((a, b) => compareStatus(a.status, b.status));
 
-    return { mainRaces, tbaRaces };
+    return { actionableRaces, sunkRaces, tbaRaces };
   }, [races, activeSeries, activeDistance, now]);
 
   function renderRace({ race, status }: { race: Race; status: DerivedStatus }) {
@@ -339,13 +343,29 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
         ))}
       </section>
 
-      {mainRaces.length > 0 ? (
+      {actionableRaces.length > 0 || sunkRaces.length > 0 ? (
         <section className="rounded-2xl border border-zinc-200 bg-white">
-          <ul className="divide-y divide-zinc-200">{mainRaces.map(renderRace)}</ul>
+          <ul className="divide-y divide-zinc-200">
+            {actionableRaces.map(renderRace)}
+          </ul>
+          {sunkRaces.length > 0 ? (
+            <>
+              <p
+                className={`bg-zinc-50 px-5 py-2.5 text-[11px] tracking-[0.12em] text-zinc-500 uppercase sm:px-7 ${
+                  actionableRaces.length > 0 ? "border-t border-zinc-200" : "rounded-t-2xl"
+                }`}
+              >
+                Nothing to act on — closed, sold out, or completed ({sunkRaces.length})
+              </p>
+              <ul className="divide-y divide-zinc-200 border-t border-zinc-200">
+                {sunkRaces.map(renderRace)}
+              </ul>
+            </>
+          ) : null}
         </section>
       ) : null}
 
-      {mainRaces.length === 0 && tbaRaces.length === 0 ? (
+      {actionableRaces.length === 0 && sunkRaces.length === 0 && tbaRaces.length === 0 ? (
         <section className="rounded-2xl border border-zinc-200 bg-white">
           <p className="px-5 py-8 text-sm text-zinc-500 sm:px-7">
             No races match the current filters.
