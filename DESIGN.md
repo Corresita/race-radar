@@ -110,7 +110,8 @@ continuously across all three groups.
 
 ## 6. Race card
 
-Cards in a responsive grid (3 columns desktop / 2 tablet / 1 mobile),
+Cards in a responsive full-width grid (4 columns wide / 3 desktop /
+2 tablet / 1 mobile; the page has no max-width),
 each stacking top to bottom:
 
 ### 6a. Identity (top)
@@ -165,7 +166,9 @@ each stacking top to bottom:
 
 ## 7. Footer
 
-**Shows:** data-honesty note: manually curated, confirm on official sites.
+**Shows:** data-honesty note (manually curated, confirm on official
+sites) plus a giant right-aligned `RACE_REMINDER ©` wordmark in the
+display face, light gray, as a closing brand stamp.
 
 **Code:** `app/page.tsx`.
 
@@ -178,14 +181,9 @@ Tailwind utilities in `app/globals.css`:
 
 | Face              | Utility        | Used for                                        |
 | ----------------- | -------------- | ----------------------------------------------- |
-| **Space Grotesk** | `font-display` | wordmark, hero headline                         |
-| **Jost**          | default        | everything else — labels, names, badges, body   |
+| **Space Grotesk** | `font-display` | wordmark, hero headline, giant footer wordmark  |
+| **Inter**         | default        | everything else — labels, names, badges, body   |
 | **Geist Mono**    | `font-mono`    | card index numbers, countdown figures           |
-
-Jost is the free Futura equivalent; the body fallback stack puts real
-`Futura` ahead of Arial, so machines that own it get the genuine face.
-To swap in licensed Futura later, change only the `jost` loader in
-`layout.tsx`.
 
 ## Data & status reference
 

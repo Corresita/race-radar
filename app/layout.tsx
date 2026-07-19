@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Jost, Space_Grotesk } from "next/font/google";
+import { Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 // Display face: brand wordmark + hero.
@@ -9,10 +9,9 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-// Body face: Jost, the standard free Futura equivalent (swap in licensed
-// Futura here if we ever buy it).
-const jost = Jost({
-  variable: "--font-jost",
+// Body face.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${jost.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

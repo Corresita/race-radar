@@ -530,7 +530,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
       </section>
 
       {actionableRaces.length > 0 ? (
-        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {actionableRaces.map(renderRace)}
         </ul>
       ) : null}
@@ -541,7 +541,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
             Nothing to act on — closed, sold out, or completed (
             {sunkRaces.length})
           </p>
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {sunkRaces.map((entry, i) =>
               renderRace(entry, actionableRaces.length + i),
             )}
@@ -563,7 +563,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
             Awaiting dates ({tbaRaces.length}) — announced races without a
             registration window yet
           </summary>
-          <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {tbaRaces.map((entry, i) =>
               renderRace(entry, actionableRaces.length + sunkRaces.length + i),
             )}
