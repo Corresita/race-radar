@@ -420,8 +420,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
               Race Reminder™
             </p>
             <p className="mt-2 max-w-xs text-[11px] leading-relaxed tracking-[0.08em] text-zinc-500 uppercase">
-              Monitoring trail ultra registrations so you never miss a start
-              line.
+              Never miss a start line.
             </p>
           </div>
           <div className="flex gap-6 text-xs tracking-wide uppercase">
@@ -474,13 +473,10 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
           </div>
         </div>
 
-        <h1 className="font-display mt-8 text-sm font-semibold tracking-[0.25em] text-zinc-900 uppercase">
-          Never miss a trail ultra registration.
-        </h1>
-        <p className="mt-2 max-w-md text-[11px] leading-relaxed tracking-[0.08em] text-zinc-500 uppercase">
+        <h1 className="font-display mt-8 max-w-2xl text-sm font-semibold tracking-[0.25em] text-zinc-900 uppercase">
           Opening dates, deadlines, and lottery draws — sorted by what needs
           action next.
-        </p>
+        </h1>
       </header>
 
       <section className="mb-4 flex flex-wrap gap-2">
