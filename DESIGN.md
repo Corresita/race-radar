@@ -34,13 +34,15 @@ the counts can drive filter state).
 
 ## 2. Hero
 
-**Shows:** one-line headline (`NEVER MISS A TRAIL ULTRA REGISTRATION.`)
-plus a one-sentence subtitle stating the product promise.
+**Shows:** a one-line headline stating the product promise
+(`OPENING DATES, DEADLINES, AND LOTTERY DRAWS — SORTED BY WHAT NEEDS
+ACTION NEXT.`). The brand tagline above the divider reads
+`NEVER MISS A START LINE.`
 
-**Rules:** headline and subtitle use the **same small-caps type scale as
-the wordmark** (headline = wordmark style, subtitle = tagline style) so the
-whole header reads as one system. Subtitle mirrors the meta description in
-`app/layout.tsx` (keep the two in sync when repositioning).
+**Rules:** wordmark, tagline, and headline share the **same small-caps
+type scale** (headline = wordmark style, tagline = smaller) so the whole
+header reads as one system. The `<title>`/meta description in
+`app/layout.tsx` are separate and tuned for search — no need to mirror.
 
 **Code:** header block in `app/components/race-browser.tsx`;
 `<title>`/description in `app/layout.tsx`.
