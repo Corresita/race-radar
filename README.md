@@ -137,7 +137,7 @@ Race data lives in [`data/races.json`](data/races.json). The file stores **facts
 
 ## Project journey
 
-The research, design decisions, and lessons learned behind this project are documented in [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md).
+The research, design decisions, and lessons learned behind this project are documented in [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md). The page's information architecture — every UI block, its data, and its display rules — lives in [DESIGN.md](DESIGN.md).
 
 ## Contributing
 
