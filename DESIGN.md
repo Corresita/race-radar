@@ -171,6 +171,22 @@ each stacking top to bottom:
 
 ---
 
+## Typography
+
+Three faces, loaded via `next/font` in `app/layout.tsx`, mapped to
+Tailwind utilities in `app/globals.css`:
+
+| Face              | Utility        | Used for                                        |
+| ----------------- | -------------- | ----------------------------------------------- |
+| **Space Grotesk** | `font-display` | wordmark, hero headline                         |
+| **Jost**          | default        | everything else — labels, names, badges, body   |
+| **Geist Mono**    | `font-mono`    | card index numbers, countdown figures           |
+
+Jost is the free Futura equivalent; the body fallback stack puts real
+`Futura` ahead of Arial, so machines that own it get the genuine face.
+To swap in licensed Futura later, change only the `jost` loader in
+`layout.tsx`.
+
 ## Data & status reference
 
 - **Facts only in `data/races.json`** — dates, type, distances, plus the
