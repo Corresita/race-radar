@@ -22,7 +22,7 @@ type RaceRecord = {
   id: string;
   name: string;
   raceDate: string | null;
-  distances: string[];
+  distancesKm: number[];
   soldOut?: boolean;
   observed?: { status?: string | null; checkedAt?: string | null } | null;
   officialUrl: string;
@@ -31,16 +31,8 @@ type RaceRecord = {
 type SubRace = {
   name?: string;
   raceStatus?: { status?: string };
-  details?: { statsUp?: { name?: string; value?: unknown }[] };
+  details?: { statsDown?: { name?: string; value?: unknown }[] };
 };
-
-const DISTANCE_BY_CATEGORY: Record<string, string> = {
-  ws20KM: "20K",
-  ws50KM: "50K",
-  ws100KM: "100K",
-  ws100M: "100M",
-};
-const DISTANCE_ORDER = ["20K", "50K", "100K", "100M"];
 
 function findSubRaces(node: unknown): SubRace[] | null {
   if (Array.isArray(node)) {
@@ -119,19 +111,20 @@ function applySite(
     race.raceDate = beginDate;
   }
 
-  const distances = [
+  // Real distances in km, straight from each sub-race's official stats.
+  const distancesKm = [
     ...new Set(
       site.subRaces.flatMap((sub) =>
-        (sub.details?.statsUp ?? [])
-          .filter((stat) => stat.name === "categoryWorldSeries")
-          .map((stat) => DISTANCE_BY_CATEGORY[String(stat.value)])
-          .filter(Boolean),
+        (sub.details?.statsDown ?? [])
+          .filter((stat) => stat.name === "distance")
+          .map((stat) => Math.round(Number(stat.value)))
+          .filter((km) => Number.isFinite(km) && km > 0),
       ),
     ),
-  ].sort((a, b) => DISTANCE_ORDER.indexOf(a) - DISTANCE_ORDER.indexOf(b));
-  if (distances.length > 0 && distances.join() !== race.distances.join()) {
-    changes.push(`distances [${race.distances}] -> [${distances}]`);
-    race.distances = distances;
+  ].sort((a, b) => a - b);
+  if (distancesKm.length > 0 && distancesKm.join() !== (race.distancesKm ?? []).join()) {
+    changes.push(`distancesKm [${race.distancesKm ?? []}] -> [${distancesKm}]`);
+    race.distancesKm = distancesKm;
   }
 
   const statuses = site.subRaces

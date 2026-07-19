@@ -17,7 +17,8 @@ export type Race = RaceFacts & {
   country: string | null;
   entryRequirement: string | null;
   entryNotes?: string | null;
-  distances: string[];
+  /** Real course distances in km, per the organizer. */
+  distancesKm: number[];
   officialUrl: string;
 };
 
@@ -51,6 +52,15 @@ const registrationTypeLabels: Record<string, string> = {
   qualification: "Qualification",
 };
 
+// Distance-range buckets over real km, so a 70K race is findable as
+// 50–100K instead of hiding behind an official "50K" category tag.
+const distanceFilters: { id: string; label: string; match: (km: number) => boolean }[] = [
+  { id: "sub50", label: "≤50K", match: (km) => km <= 50 },
+  { id: "50-100", label: "50–100K", match: (km) => km > 50 && km < 85 },
+  { id: "100K", label: "100K", match: (km) => km >= 85 && km < 130 },
+  { id: "100M", label: "100M", match: (km) => km >= 130 },
+];
+
 const EMAIL_STORAGE_KEY = "race-reminder-email";
 const SUBSCRIPTIONS_STORAGE_KEY = "race-reminder-subscriptions";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,7 +81,6 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
   const [activeSeries, setActiveSeries] = useState<Series>("utmb-world-series");
   const [activeDistance, setActiveDistance] = useState<string | null>(null);
   const [now] = useState(() => new Date(initialNow));
-  const trailDistanceFilters = ["20K", "50K", "100K", "100M"];
 
   // Subscription state lives in localStorage; loaded after mount so the
   // server-rendered HTML and the first client render agree.
@@ -161,9 +170,10 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
     const sunkRaces: { race: Race; status: DerivedStatus }[] = [];
     const tbaRaces: { race: Race; status: DerivedStatus }[] = [];
 
+    const activeFilter = distanceFilters.find((f) => f.id === activeDistance);
     for (const race of races) {
       if (race.series !== activeSeries) continue;
-      if (activeDistance && !race.distances.includes(activeDistance)) continue;
+      if (activeFilter && !race.distancesKm.some(activeFilter.match)) continue;
       const status = deriveStatus(race, now);
       if (status.code === "DATES_TBA") tbaRaces.push({ race, status });
       else if (status.actionable) actionableRaces.push({ race, status });
@@ -204,12 +214,12 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
                   {race.country ? ` · ${race.country}` : null}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
-                  {race.distances.map((distance) => (
+                  {race.distancesKm.map((km) => (
                     <span
-                      key={`${race.id}-${distance}`}
+                      key={`${race.id}-${km}`}
                       className="rounded-full border border-zinc-300 px-2 py-0.5 text-[10px] tracking-wide text-zinc-700 uppercase"
                     >
-                      {distance}
+                      {km}K
                     </span>
                   ))}
                 </div>
@@ -323,22 +333,22 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
       </section>
 
       <section className="mb-8 flex flex-wrap gap-2">
-        {trailDistanceFilters.map((distance) => (
+        {distanceFilters.map((filter) => (
           <button
-            key={distance}
+            key={filter.id}
             type="button"
             onClick={() =>
-              setActiveDistance((currentDistance) =>
-                currentDistance === distance ? null : distance,
+              setActiveDistance((current) =>
+                current === filter.id ? null : filter.id,
               )
             }
             className={`rounded-full border px-4 py-1.5 text-xs tracking-wide uppercase transition-colors ${
-              activeDistance === distance
+              activeDistance === filter.id
                 ? "border-zinc-900 bg-zinc-900 text-zinc-50"
                 : "border-zinc-300 text-zinc-600 hover:border-zinc-500 hover:text-zinc-900"
             }`}
           >
-            {distance}
+            {filter.label}
           </button>
         ))}
       </section>

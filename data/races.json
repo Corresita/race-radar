@@ -10,16 +10,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://xiamen.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      29,
+      53,
+      96
+    ]
   },
   {
     "id": "ushuaia",
@@ -32,17 +33,20 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://ushuaia.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      13,
+      22,
+      34,
+      50,
+      87,
+      113
+    ]
   },
   {
     "id": "ultra-trail-mogan",
@@ -55,17 +59,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mogan.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      25,
+      48,
+      81,
+      114
+    ]
   },
   {
     "id": "grand-raid-ventoux",
@@ -78,17 +82,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://ventoux.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      26,
+      51,
+      87,
+      125
+    ]
   },
   {
     "id": "amazean-jungle-thailand",
@@ -101,17 +105,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://amazean.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      4,
+      17,
+      26,
+      55,
+      91,
+      116
+    ]
   },
   {
     "id": "ultra-trail-snowdonia",
@@ -124,17 +130,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://snowdonia.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      56,
+      78,
+      106,
+      163
+    ]
   },
   {
     "id": "trail-du-saint-jacques",
@@ -147,17 +154,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://saint-jacques.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      12,
+      28,
+      55,
+      86,
+      139
+    ]
   },
   {
     "id": "trail-of-the-kings-lake-toba",
@@ -170,16 +178,12 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://laketoba.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": []
   },
   {
     "id": "kagaspa-trail-endurance-100",
@@ -192,17 +196,13 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://kagaspa.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": []
   },
   {
     "id": "zugspitz-ultra-trail",
@@ -215,17 +215,20 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://zugspitz.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      16,
+      29,
+      44,
+      69,
+      74,
+      107
+    ]
   },
   {
     "id": "torrencial-chile",
@@ -238,17 +241,20 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://torrencial.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      7,
+      12,
+      20,
+      44,
+      62,
+      106
+    ]
   },
   {
     "id": "val-daran-by-utmb",
@@ -261,18 +267,21 @@
     "registrationCloses": "2026-02-10T23:59:59+01:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 100K",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://valdaran.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      18,
+      32,
+      55,
+      75,
+      110,
+      163
+    ]
   },
   {
     "id": "restonica-trail",
@@ -285,17 +294,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://restonica.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      17,
+      33,
+      69,
+      110
+    ]
   },
   {
     "id": "trail-verbier-st-bernard",
@@ -308,17 +317,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://verbier.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      28,
+      43,
+      77,
+      140
+    ]
   },
   {
     "id": "monte-rosa-walserwaeg",
@@ -331,18 +340,20 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mrww.utmb.world",
     "soldOut": true,
     "observed": {
       "status": "registration_sold_out",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      4,
+      9,
+      15,
+      43,
+      82,
+      120
+    ]
   },
   {
     "id": "eiger-ultra-trail",
@@ -355,17 +366,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "ITRA 600 / UTMB 50K",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://eiger.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      15,
+      16,
+      35,
+      51,
+      101,
+      200
+    ]
   },
   {
     "id": "bucovina-ultra-rocks",
@@ -378,17 +391,20 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://bucovina.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      5,
+      17,
+      20,
+      33,
+      48,
+      72,
+      114
+    ]
   },
   {
     "id": "speedgoat-mountain-races",
@@ -401,14 +417,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "Experience on technical terrain",
-    "distances": [
-      "50K"
-    ],
     "officialUrl": "https://speedgoat.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      4,
+      10,
+      31,
+      50
+    ]
   },
   {
     "id": "quito-trail-ecuador",
@@ -421,16 +440,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://quito.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      13,
+      20,
+      31,
+      53,
+      76
+    ]
   },
   {
     "id": "gauja-trail",
@@ -443,16 +464,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://gauja.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      2,
+      6,
+      14,
+      21,
+      53,
+      91
+    ]
   },
   {
     "id": "kat100",
@@ -465,17 +489,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://kat.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      8,
+      24,
+      51,
+      75,
+      169
+    ]
   },
   {
     "id": "borealys-mont-tremblant",
@@ -488,16 +513,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://borealys.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      6,
+      15,
+      27,
+      46,
+      81
+    ]
   },
   {
     "id": "ultra-trail-whistler",
@@ -510,16 +537,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://whistler.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      12,
+      16,
+      50,
+      100
+    ]
   },
   {
     "id": "utmb-mont-blanc",
@@ -533,17 +561,20 @@
     "registrationType": "lottery",
     "lotteryDrawDate": "2026-01-22T11:00:00+01:00",
     "entryRequirement": "UTMB Index 100M + Running Stones",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://montblanc.utmb.world/",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      15,
+      40,
+      60,
+      101,
+      145,
+      174,
+      300
+    ]
   },
   {
     "id": "wildstrubel",
@@ -556,17 +587,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://wildstrubel.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      26,
+      42,
+      55,
+      72,
+      113
+    ]
   },
   {
     "id": "snowbasin",
@@ -579,15 +612,15 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K"
-    ],
     "officialUrl": "https://snowbasin.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      29,
+      59
+    ]
   },
   {
     "id": "malaysia-ultra-trail",
@@ -600,16 +633,12 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://malaysia.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": []
   },
   {
     "id": "kackar",
@@ -622,16 +651,16 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://kackar.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      20,
+      44,
+      82
+    ]
   },
   {
     "id": "ultra-trail-great-wall",
@@ -644,16 +673,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://dajingmen.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      31,
+      52,
+      68,
+      100
+    ]
   },
   {
     "id": "paraty-brazil",
@@ -666,16 +696,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://paraty.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      7,
+      17,
+      25,
+      34,
+      58,
+      108
+    ]
   },
   {
     "id": "grindstone-trail-running-festival",
@@ -688,17 +721,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://grindstone.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      21,
+      50,
+      100,
+      167
+    ]
   },
   {
     "id": "julian-alps-trail-run",
@@ -711,17 +744,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://julianalps.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      15,
+      25,
+      50,
+      80,
+      124
+    ]
   },
   {
     "id": "nice-cote-d-azur",
@@ -734,17 +769,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://nice.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      23,
+      39,
+      50,
+      109,
+      165
+    ]
   },
   {
     "id": "chihuahua",
@@ -757,17 +793,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://chihuahua.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      9,
+      20,
+      38,
+      59,
+      94,
+      135
+    ]
   },
   {
     "id": "transjeju",
@@ -780,17 +818,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://transjeju.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      20,
+      60,
+      104,
+      148
+    ]
   },
   {
     "id": "kodiak-ultra-marathons",
@@ -803,17 +841,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://kodiak.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      11,
+      20,
+      48,
+      99,
+      162
+    ]
   },
   {
     "id": "ultra-trail-mount-yun",
@@ -826,17 +865,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mount-yun.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      48,
+      68,
+      97,
+      161
+    ]
   },
   {
     "id": "puglia",
@@ -849,17 +889,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://puglia.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      35,
+      50,
+      85,
+      144
+    ]
   },
   {
     "id": "mallorca",
@@ -872,14 +913,9 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mallorca.utmb.world",
-    "observed": null
+    "observed": null,
+    "distancesKm": []
   },
   {
     "id": "kullamannen-by-utmb",
@@ -892,17 +928,17 @@
     "registrationCloses": "2026-10-10T23:59:59+02:00",
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://kullamannen.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      53,
+      108,
+      173
+    ]
   },
   {
     "id": "ultra-trail-shudao",
@@ -915,16 +951,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://shudao.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      42,
+      71,
+      104
+    ]
   },
   {
     "id": "pacific-trails-california",
@@ -937,15 +974,15 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K"
-    ],
     "officialUrl": "https://pacifictrails.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      25,
+      51
+    ]
   },
   {
     "id": "trans-lantau-by-utmb",
@@ -958,17 +995,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 20K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://translantau.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
     },
-    "entryNotes": "No announced closing date — open until race slots fill."
+    "entryNotes": "No announced closing date — open until race slots fill.",
+    "distancesKm": [
+      15,
+      27,
+      45,
+      104
+    ]
   },
   {
     "id": "patagonia-bariloche",
@@ -981,17 +1019,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://bariloche.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      13,
+      22,
+      36,
+      58,
+      86,
+      132
+    ]
   },
   {
     "id": "chiang-mai-thailand",
@@ -1004,17 +1044,22 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://chiangmai.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      3,
+      5,
+      17,
+      20,
+      26,
+      57,
+      63,
+      100,
+      173
+    ]
   },
   {
     "id": "ultra-trail-kosciuszko",
@@ -1027,18 +1072,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 20K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://kosciuszko.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
     },
-    "entryNotes": "No announced closing date — open until each distance sells out."
+    "entryNotes": "No announced closing date — open until each distance sells out.",
+    "distancesKm": [
+      32,
+      50,
+      106,
+      161
+    ]
   },
   {
     "id": "oman",
@@ -1051,17 +1096,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://oman.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      32,
+      50,
+      103,
+      154
+    ]
   },
   {
     "id": "vietnam-highlands-trail",
@@ -1074,16 +1120,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://vietnamhighlands.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      5,
+      11,
+      24,
+      56,
+      104
+    ]
   },
   {
     "id": "arc-of-attrition",
@@ -1096,17 +1144,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://arcofattrition.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      49,
+      83,
+      173
+    ]
   },
   {
     "id": "tarawera-ultra-trail",
@@ -1119,17 +1167,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://tarawera.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      14,
+      23,
+      52,
+      102,
+      163
+    ]
   },
   {
     "id": "puerto-vallarta",
@@ -1142,16 +1191,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://puerto-vallarta.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      5,
+      20,
+      37,
+      53,
+      81
+    ]
   },
   {
     "id": "xtrail",
@@ -1164,16 +1215,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://xtrail.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      2,
+      11,
+      26,
+      50,
+      98
+    ]
   },
   {
     "id": "chianti-ultra-trail",
@@ -1186,17 +1239,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://chianti.utmb.world/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      20,
+      46,
+      73,
+      123
+    ]
   },
   {
     "id": "istria-100",
@@ -1209,17 +1263,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://istria.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      42,
+      70,
+      111,
+      168
+    ]
   },
   {
     "id": "desert-rats-trail-running-festival",
@@ -1232,16 +1287,17 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://desertrats.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      9,
+      21,
+      48,
+      100
+    ]
   },
   {
     "id": "tenerife-bluetrail",
@@ -1254,17 +1310,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://tenerife.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      7,
+      24,
+      47,
+      68,
+      82,
+      110
+    ]
   },
   {
     "id": "canyons-endurance-runs",
@@ -1278,17 +1336,17 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": "UTMB Index 50K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://canyons.utmb.world/",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      25,
+      50,
+      100,
+      161
+    ]
   },
   {
     "id": "oh-meu-deus",
@@ -1301,17 +1359,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://ohmeudeus.utmb.world",
     "observed": {
       "status": "registration_closed",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      22,
+      41,
+      52,
+      94,
+      167
+    ]
   },
   {
     "id": "trail-alsace",
@@ -1324,17 +1383,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://alsace.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      11,
+      18,
+      29,
+      47,
+      108,
+      158
+    ]
   },
   {
     "id": "ultra-trail-australia",
@@ -1347,17 +1408,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://uta.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      1,
+      12,
+      22,
+      51,
+      101,
+      161
+    ]
   },
   {
     "id": "rothrock",
@@ -1370,15 +1433,15 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K"
-    ],
     "officialUrl": "https://rothrock.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      27,
+      53
+    ]
   },
   {
     "id": "mountain-ultra-trail",
@@ -1391,17 +1454,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mut.utmb.world",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      12,
+      25,
+      43,
+      58,
+      100,
+      168
+    ]
   },
   {
     "id": "mozart-100",
@@ -1414,17 +1479,19 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://mozart.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      12,
+      28,
+      44,
+      84,
+      90,
+      119
+    ]
   },
   {
     "id": "trail-100-andorra",
@@ -1437,17 +1504,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://andorra.utmb.world",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      25,
+      50,
+      79,
+      105
+    ]
   },
   {
     "id": "lavaredo-ultra-trail",
@@ -1460,17 +1528,18 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": "UTMB Index 50K+",
-    "distances": [
-      "20K",
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://lavaredo.utmb.world/",
     "observed": {
       "status": "available_soon",
       "checkedAt": "2026-07-19T00:52:53.836Z"
-    }
+    },
+    "distancesKm": [
+      10,
+      20,
+      50,
+      80,
+      120
+    ]
   },
   {
     "id": "hk100",
@@ -1484,12 +1553,11 @@
     "registrationType": "lottery",
     "lotteryDrawDate": "2026-08-17T00:00:00+08:00",
     "entryRequirement": null,
-    "distances": [
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://hk100ultra.com/",
-    "entryNotes": "2027 edition. Public ballot Jul 30 - Aug 4 2026; results Aug 17; successful entrants confirm by Aug 23. Priority (invitation only) Jul 24-28; charity places FCFS from Aug 25 20:00 HKT; waitlist opens Aug 31."
+    "entryNotes": "2027 edition. Public ballot Jul 30 - Aug 4 2026; results Aug 17; successful entrants confirm by Aug 23. Priority (invitation only) Jul 24-28; charity places FCFS from Aug 25 20:00 HKT; waitlist opens Aug 31.",
+    "distancesKm": [
+      103
+    ]
   },
   {
     "id": "black-canyon-ultras",
@@ -1502,15 +1570,15 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://aravaiparunning.com/network/blackcanyon/",
     "observed": {
       "status": "registration_open",
       "checkedAt": "2026-07-19T01:06:39.005327+00:00"
-    }
+    },
+    "distancesKm": [
+      50,
+      100
+    ]
   },
   {
     "id": "transgrancanaria",
@@ -1523,11 +1591,14 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "50K",
-      "100K"
-    ],
-    "officialUrl": "https://www.transgrancanaria.net/en/"
+    "officialUrl": "https://www.transgrancanaria.net/en/",
+    "distancesKm": [
+      17,
+      30,
+      45,
+      84,
+      126
+    ]
   },
   {
     "id": "mt-fuji-100",
@@ -1541,12 +1612,12 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": "Qualifying races (ITRA points)",
-    "distances": [
-      "50K",
-      "100K",
-      "100M"
-    ],
-    "officialUrl": "https://en.mtfuji100.com/"
+    "officialUrl": "https://en.mtfuji100.com/",
+    "distancesKm": [
+      40,
+      70,
+      161
+    ]
   },
   {
     "id": "miut",
@@ -1560,12 +1631,14 @@
     "registrationType": "lottery",
     "lotteryDrawDate": null,
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
-    "officialUrl": "https://miutmadeira.com/"
+    "officialUrl": "https://miutmadeira.com/",
+    "distancesKm": [
+      16,
+      42,
+      60,
+      85,
+      115
+    ]
   },
   {
     "id": "south-downs-way-100",
@@ -1578,11 +1651,10 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "50K",
-      "100M"
-    ],
-    "officialUrl": "https://centurionrunning.com/"
+    "officialUrl": "https://centurionrunning.com/",
+    "distancesKm": [
+      161
+    ]
   },
   {
     "id": "quebec-mega-trail",
@@ -1595,12 +1667,14 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
-    "officialUrl": "https://quebecmegatrail.com/"
+    "officialUrl": "https://quebecmegatrail.com/",
+    "distancesKm": [
+      25,
+      50,
+      80,
+      110,
+      160
+    ]
   },
   {
     "id": "vietnam-mountain-marathon",
@@ -1613,12 +1687,14 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
-    "officialUrl": "https://www.vietnammountainmarathon.com/"
+    "officialUrl": "https://www.vietnammountainmarathon.com/",
+    "distancesKm": [
+      21,
+      50,
+      70,
+      100,
+      160
+    ]
   },
   {
     "id": "grampians-peaks-trail-100",
@@ -1631,13 +1707,14 @@
     "registrationCloses": "2026-10-30T23:59:59+11:00",
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "50K",
-      "100K",
-      "100M"
-    ],
     "officialUrl": "https://www.gpt100.com.au/",
-    "entryNotes": "Standard entry to Oct 9, late entry to Oct 30."
+    "entryNotes": "Standard entry to Oct 9, late entry to Oct 30.",
+    "distancesKm": [
+      33,
+      50,
+      100,
+      162
+    ]
   },
   {
     "id": "ultra-trail-cape-town",
@@ -1650,13 +1727,16 @@
     "registrationCloses": null,
     "registrationType": "fcfs",
     "entryRequirement": null,
-    "distances": [
-      "20K",
-      "50K",
-      "100K"
-    ],
     "officialUrl": "https://www.ultratrailcapetown.com/",
-    "entryNotes": "Shorter distances sell out within hours to days of opening."
+    "entryNotes": "Shorter distances sell out within hours to days of opening.",
+    "distancesKm": [
+      16,
+      23,
+      35,
+      55,
+      100,
+      166
+    ]
   },
   {
     "id": "western-states-100",
@@ -1671,10 +1751,10 @@
     "lotteryDrawDate": "2026-12-05T08:00:00-08:00",
     "entryRequirement": "Qualifying race (Nov 3, 2025 - Nov 8, 2026)",
     "entryNotes": "Independent, with UTMB partnership (qualifier reciprocity). Unselected lottery tickets accumulate year over year. Golden Ticket races grant automatic entry.",
-    "distances": [
-      "100M"
-    ],
-    "officialUrl": "https://www.wser.org/"
+    "officialUrl": "https://www.wser.org/",
+    "distancesKm": [
+      161
+    ]
   },
   {
     "id": "hardrock-100",
@@ -1689,9 +1769,9 @@
     "lotteryDrawDate": "2026-12-05T09:00:00-07:00",
     "entryRequirement": "Qualifying race required",
     "entryNotes": "2027 ballot: Oct 1-14 2026 on UltraSignup; lottery drawn Dec 5 2026. Finished/Never-Finished pools with accumulating tickets.",
-    "distances": [
-      "100M"
-    ],
-    "officialUrl": "https://hardrock100.com/"
+    "officialUrl": "https://hardrock100.com/",
+    "distancesKm": [
+      161
+    ]
   }
 ]

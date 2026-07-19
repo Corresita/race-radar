@@ -13,7 +13,7 @@ Popular ultra-trail races sell out within days (sometimes hours) of registration
 ## Features
 
 - **Browse 77 races** across UTMB World Series, World Trail Majors, and independents
-- **Filter** by series and distance (20K / 50K / 100K / 100M)
+- **Filter** by series and distance range (≤50K / 50–100K / 100K / 100M), computed from each race's real course distances
 - **Registration countdowns** — time until registration opens, or time left to register, sorted by what needs action next
 - **Derived race status** — announced → registration open → closing soon → closed / sold out → completed → next edition; computed at runtime from stored facts, never stored by hand
 - **Email reminders** — subscribe to a race with your email and get notified when its registration window opens
@@ -110,7 +110,7 @@ Race data lives in [`data/races.json`](data/races.json). The file stores **facts
   "registrationCloses": "2026-01-15T23:59:59+01:00",
   "registrationType": "lottery",
   "entryRequirement": "UTMB Index 100M + Running Stones",
-  "distances": ["20K", "50K", "100K", "100M"],
+  "distancesKm": [15, 40, 60, 101, 145, 174, 300],
   "officialUrl": "https://montblanc.utmb.world/"
 }
 ```
