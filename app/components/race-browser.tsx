@@ -29,15 +29,18 @@ type RaceBrowserProps = {
   initialNow: number;
 };
 
-const seriesTabs: { slug: Series; label: string }[] = [
-  { slug: "utmb-world-series", label: "UTMB World Series" },
-  { slug: "world-trail-majors", label: "World Trail Majors" },
+const seriesTabs: { slug: Series | null; label: string }[] = [
+  { slug: null, label: "All Events" },
+  { slug: "utmb-world-series", label: "UTMB" },
+  { slug: "world-trail-majors", label: "World Majors" },
   { slug: "independent", label: "Independent" },
 ];
 
-const seriesLabels = Object.fromEntries(
-  seriesTabs.map((tab) => [tab.slug, tab.label]),
-) as Record<Series, string>;
+const seriesLabels: Record<Series, string> = {
+  "utmb-world-series": "UTMB World Series",
+  "world-trail-majors": "World Trail Majors",
+  independent: "Independent",
+};
 
 const urgencyStyles: Record<Urgency, string> = {
   critical: "border-red-500/40 text-red-700 bg-red-50",
@@ -51,6 +54,53 @@ const registrationTypeLabels: Record<string, string> = {
   fcfs: "First come, first served",
   qualification: "Qualification",
 };
+
+const shortStatusLabels: Record<DerivedStatus["code"], string> = {
+  REG_OPENS_SOON: "Not yet open",
+  LOTTERY_OPENS_SOON: "Not yet open",
+  REG_OPEN: "Open now",
+  REG_CLOSING_SOON: "Closing soon",
+  LOTTERY_OPEN: "Ballot open",
+  AWAITING_DRAW: "Awaiting draw",
+  LOTTERY_DRAWN: "Ballot drawn",
+  REG_CLOSED: "Closed",
+  SOLD_OUT: "Sold out",
+  COMPLETED_NEXT_KNOWN: "Completed",
+  COMPLETED_NEXT_TBA: "Completed",
+  DATES_TBA: "Dates TBA",
+};
+
+/** The card's big number: what to count down to (or the terminal state). */
+function countdownRow(status: DerivedStatus): { label: string; value: string } {
+  const days = status.daysUntil != null ? `${status.daysUntil}d` : null;
+  switch (status.code) {
+    case "REG_OPENS_SOON":
+    case "LOTTERY_OPENS_SOON":
+      return { label: "Opens in", value: days ?? "TBA" };
+    case "COMPLETED_NEXT_KNOWN":
+      return { label: "Next edition opens in", value: days ?? "TBA" };
+    case "REG_OPEN":
+    case "REG_CLOSING_SOON":
+      return days
+        ? { label: "Closes in", value: days }
+        : { label: "Closes", value: "TBA" };
+    case "LOTTERY_OPEN":
+      return days
+        ? { label: "Ballot ends in", value: days }
+        : { label: "Ballot", value: "Open" };
+    case "AWAITING_DRAW":
+      return { label: "Draw in", value: days ?? "TBA" };
+    case "LOTTERY_DRAWN":
+      return { label: "Ballot", value: "Drawn" };
+    case "SOLD_OUT":
+      return { label: "Status", value: "Sold out" };
+    case "REG_CLOSED":
+    case "COMPLETED_NEXT_TBA":
+      return { label: "Next cycle", value: "TBA" };
+    default:
+      return { label: "Dates", value: "TBA" };
+  }
+}
 
 // Distance-range buckets over real km, so a 70K race is findable as
 // 50–100K instead of hiding behind an official "50K" category tag.
@@ -78,7 +128,7 @@ function formatDate(iso: string | null | undefined) {
 }
 
 export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
-  const [activeSeries, setActiveSeries] = useState<Series>("utmb-world-series");
+  const [activeSeries, setActiveSeries] = useState<Series | null>(null);
   const [activeDistance, setActiveDistance] = useState<string | null>(null);
   const [now] = useState(() => new Date(initialNow));
 
@@ -172,7 +222,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
 
     const activeFilter = distanceFilters.find((f) => f.id === activeDistance);
     for (const race of races) {
-      if (race.series !== activeSeries) continue;
+      if (activeSeries && race.series !== activeSeries) continue;
       if (activeFilter && !race.distancesKm.some(activeFilter.match)) continue;
       const status = deriveStatus(race, now);
       if (status.code === "DATES_TBA") tbaRaces.push({ race, status });
@@ -185,12 +235,17 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
     return { actionableRaces, sunkRaces, tbaRaces };
   }, [races, activeSeries, activeDistance, now]);
 
-  function renderRace({ race, status }: { race: Race; status: DerivedStatus }) {
+  function renderRace(
+    { race, status }: { race: Race; status: DerivedStatus },
+    index: number,
+  ) {
     // Only a live window's dates are worth showing; completed editions and
     // closed/drawn/sold-out races would display stale ones.
     const showWindow = status.actionable && !status.completed;
     const opensLabel = showWindow ? formatDate(race.registrationOpens) : null;
     const closesLabel = showWindow ? formatDate(race.registrationCloses) : null;
+    const countdown = countdownRow(status);
+    const year = race.raceDate ? new Date(race.raceDate).getFullYear() : null;
 
     return (
       <li
@@ -198,6 +253,9 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
         className="grid gap-3 px-5 py-5 sm:grid-cols-[1.35fr_1fr_1fr] sm:gap-4 sm:px-7"
       >
               <div>
+                <p className="font-mono text-[11px] tracking-wide text-zinc-400">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
                 <p className="text-lg font-medium tracking-tight text-zinc-900">
                   {race.name}
                 </p>
@@ -212,6 +270,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
                 <p className="mt-1 text-[11px] tracking-[0.12em] text-zinc-500 uppercase">
                   {race.organizer ?? seriesLabels[race.series]}
                   {race.country ? ` · ${race.country}` : null}
+                  {year ? ` · ${year}` : null}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {race.distancesKm.map((km) => (
@@ -244,12 +303,22 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
               </div>
 
               <div>
-                <p className="text-xs tracking-wide text-zinc-500 uppercase">Registration</p>
-                <span
-                  className={`mt-1 inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${urgencyStyles[status.urgency]}`}
-                >
-                  {status.label}
-                </span>
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-xs tracking-wide text-zinc-500 uppercase">
+                    Registration
+                  </p>
+                  <span
+                    className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${urgencyStyles[status.urgency]}`}
+                  >
+                    {shortStatusLabels[status.code]}
+                  </span>
+                </div>
+                <p className="mt-2 text-[11px] tracking-[0.12em] text-zinc-500 uppercase">
+                  {countdown.label}
+                </p>
+                <p className="text-2xl leading-tight font-semibold tracking-tight text-zinc-900">
+                  {countdown.value}
+                </p>
                 {opensLabel ? (
                   <p className="mt-1 text-xs text-zinc-500">Opens {opensLabel}</p>
                 ) : null}
@@ -269,7 +338,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
                         : "border-zinc-300 text-zinc-600 hover:border-zinc-500 hover:text-zinc-900"
                     }`}
                   >
-                    {subscribedIds.has(race.id) ? "Subscribed ✓" : "Subscribe"}
+                    {subscribedIds.has(race.id) ? "Reminder set ✓" : "Set reminder"}
                   </button>
 
                   {emailFormRaceId === race.id ? (
@@ -315,7 +384,7 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
       <section className="mb-4 flex flex-wrap gap-2">
         {seriesTabs.map((tab) => (
           <button
-            key={tab.slug}
+            key={tab.slug ?? "all"}
             type="button"
             onClick={() => {
               setActiveSeries(tab.slug);
@@ -368,7 +437,9 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
                 Nothing to act on — closed, sold out, or completed ({sunkRaces.length})
               </p>
               <ul className="divide-y divide-zinc-200 border-t border-zinc-200">
-                {sunkRaces.map(renderRace)}
+                {sunkRaces.map((entry, i) =>
+                  renderRace(entry, actionableRaces.length + i),
+                )}
               </ul>
             </>
           ) : null}
@@ -390,7 +461,9 @@ export function RaceBrowser({ races, initialNow }: RaceBrowserProps) {
             registration window yet
           </summary>
           <ul className="divide-y divide-zinc-200 border-t border-zinc-200">
-            {tbaRaces.map(renderRace)}
+            {tbaRaces.map((entry, i) =>
+              renderRace(entry, actionableRaces.length + sunkRaces.length + i),
+            )}
           </ul>
         </details>
       ) : null}
